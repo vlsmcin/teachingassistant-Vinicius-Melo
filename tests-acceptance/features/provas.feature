@@ -69,3 +69,4 @@ And I apply a filter to view only questions with "Hard" Difficulty
 Then the system should display only the 3 questions marked as "Hard"
 And the displayed questions should be editable for immediate score adjustment
 And when I remove the filter, all 20 questions should be displayed, ordered by Difficulty (Hardest first)
+And all 20 questions should be displayed, ordered by Difficulty (Hardest first)
