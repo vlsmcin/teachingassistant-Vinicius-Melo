@@ -44,3 +44,17 @@ And I attempt to change the Difficulty Level of Question 2 to "Easy"
 Then the system should block the editing of questions and display a warning message
 And the warning message should be "Cannot modify questions or difficulty: The exam is currently in progress."
 And Question 2 should retain its "Medium" Difficulty setting
+
+Scenario: Reviewing and Standardizing Question Difficulty Levels
+Given I am logged in as a Professor
+And the exam "Mid-Semester Review" has 10 questions
+And Question 5 is set to "Hard" Difficulty
+And Question 8 is set to "Easy" Difficulty
+When I access the "Difficulty Alignment Report" for the exam
+And I identify that the exam needs to be more challenging
+And I change the Difficulty Level of Question 8 from "Easy" to "Medium"
+And I confirm the Difficulty Level of Question 5 remains "Hard"
+And I save the changes
+Then the system should confirm the update to the exam structure
+And the "Difficulty Alignment Report" should reflect the new, higher average difficulty
+And all future instances of the exam should use the revised difficulty settings
