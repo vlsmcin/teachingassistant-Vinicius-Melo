@@ -25,3 +25,10 @@ And o “EE1 de Cálculo” tem apenas essas duas questões
 And a resposta esperada são letra “a” e letra “b” para essas duas questões respectivamente
 When “Pedro” envia as respostas
 Then o sistema cadastra a nota “5.0” para Pedro no “EE1 de Cálculo
+
+Scenario: Prova incompleta
+Given "Pedro" respondeu letra "f" para questão "1"
+And o sistema aceita apenas alternativas entre "a", "b", "c", "d" e "e"
+And o "EE1 de Cálculo" tem apenas a questão "1"
+When "Pedro" tenta enviar as respostas
+Then o sistema exibe o erro "Alternativa inválida, preencha entre a,b,c,d ou e"
