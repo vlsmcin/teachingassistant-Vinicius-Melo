@@ -34,3 +34,13 @@ And I click "Save"
 Then the system should display an error message "Invalid difficulty level selected. Please choose from: Easy, Medium, Hard."
 And the Difficulty Level of Question 3 should remain "Medium"
 And the changes should not be saved to the exam history
+
+Scenario: Attempting to edit an exam that is currently in progress
+Given I am logged in as a Professor
+And the exam "Midterm Review" is currently "In Progress" by at least one student
+And Question 2 is set to "Medium" Difficulty
+When I access the edit screen for the "Midterm Review" exam
+And I attempt to change the Difficulty Level of Question 2 to "Easy"
+Then the system should block the editing of questions and display a warning message
+And the warning message should be "Cannot modify questions or difficulty: The exam is currently in progress."
+And Question 2 should retain its "Medium" Difficulty setting
