@@ -17,3 +17,4 @@ And o sistema aceita apenas alternativas entre “a”, ”b”, “c”, “d�
 And o “EE1 de Cálculo“ tem as questões “1”, “2” e “3”
 When “Pedro” tenta enviar as respostas
 Then o sistema exibe erro “Preencha todas as questões
+And o sistema atualiza a página
