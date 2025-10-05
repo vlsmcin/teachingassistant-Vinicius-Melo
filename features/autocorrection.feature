@@ -17,3 +17,11 @@ And o sistema aceita apenas alternativas entre “a”, ”b”, “c”, “d�
 And o “EE1 de Cálculo“ tem as questões “1”, “2” e “3”
 When “Pedro” tenta enviar as respostas
 Then o sistema exibe erro “Preencha todas as questões
+
+Scenario: Cadastrar correção de prova
+Given “Pedro” respondeu letra “a” e letra “e” para as questões “1” e “2” respectivamente
+And o sistema aceita apenas alternativas entre “a”, ”b”, “c”, “d” e “e”
+And o “EE1 de Cálculo” tem apenas essas duas questões
+And a resposta esperada são letra “a” e letra “b” para essas duas questões respectivamente
+When “Pedro” envia as respostas
+Then o sistema cadastra a nota “5.0” para Pedro no “EE1 de Cálculo
