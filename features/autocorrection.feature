@@ -33,3 +33,4 @@ And o sistema aceita apenas alternativas entre "a", "b", "c", "d" e "e"
 And o "EE1 de Cálculo" tem apenas a questão "1"
 When "Pedro" tenta enviar as respostas
 Then o sistema exibe o erro "Alternativa inválida, preencha entre a,b,c,d ou e"
+And a prova não é registrada
