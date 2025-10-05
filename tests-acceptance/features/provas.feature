@@ -45,3 +45,27 @@ Then the system should block the editing of questions and display a warning mess
 And the warning message should be "Cannot modify questions or difficulty: The exam is currently in progress."
 And Question 2 should retain its "Medium" Difficulty setting
 And the changes should not be saved to the exam history
+
+Scenario: Reviewing and Standardizing Question Difficulty Levels
+Given I am logged in as a Professor
+And the exam "Mid-Semester Review" has 10 questions
+And Question 5 is set to "Hard" Difficulty
+And Question 8 is set to "Easy" Difficulty
+When I access the "Difficulty Alignment Report" for the exam
+And I identify that the exam needs to be more challenging
+And I change the Difficulty Level of Question 8 from "Easy" to "Medium"
+And I confirm the Difficulty Level of Question 5 remains "Hard"
+And I save the changes
+Then the system should confirm the update to the exam structure
+And the "Difficulty Alignment Report" should reflect the new, higher average difficulty
+And all future instances of the exam should use the revised difficulty settings
+
+Scenario: Filtering and Organizing Questions by Difficulty
+Given I am logged in as a Professor
+And the exam "Unit Test 2 - Geometry" contains 20 questions
+And 10 questions are marked as "Easy", 7 as "Medium", and 3 as "Hard"
+When I access the question bank view within the exam editor
+And I apply a filter to view only questions with "Hard" Difficulty
+Then the system should display only the 3 questions marked as "Hard"
+And the displayed questions should be editable for immediate score adjustment
+And when I remove the filter, all 20 questions should be displayed, ordered by Difficulty (Hardest first)
