@@ -58,3 +58,13 @@ And I save the changes
 Then the system should confirm the update to the exam structure
 And the "Difficulty Alignment Report" should reflect the new, higher average difficulty
 And all future instances of the exam should use the revised difficulty settings
+
+Scenario: Filtering and Organizing Questions by Difficulty
+Given I am logged in as a Professor
+And the exam "Unit Test 2 - Geometry" contains 20 questions
+And 10 questions are marked as "Easy", 7 as "Medium", and 3 as "Hard"
+When I access the question bank view within the exam editor
+And I apply a filter to view only questions with "Hard" Difficulty
+Then the system should display only the 3 questions marked as "Hard"
+And the displayed questions should be editable for immediate score adjustment
+And when I remove the filter, all 20 questions should be displayed, ordered by Difficulty (Hardest first)
