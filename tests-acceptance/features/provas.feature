@@ -24,3 +24,13 @@ And I set the Difficulty Level of the second new question to "Hard"
 And I set the score for the second new question to 15 points
 Then the new Total Score of the exam should be 70 points
 And the exam should be ready to be distributed with mixed difficulty levels
+
+Scenario: Attempting to assign an invalid difficulty level
+Given I am logged in as a Professor
+And I am editing the exam "Final Assessment - Module 3"
+And Question 3 is currently set to "Medium" Difficulty
+When I try to change the Difficulty Level of Question 3 to "Very Hard" (an invalid option)
+And I click "Save"
+Then the system should display an error message "Invalid difficulty level selected. Please choose from: Easy, Medium, Hard."
+And the Difficulty Level of Question 3 should remain "Medium"
+And the changes should not be saved to the exam history
