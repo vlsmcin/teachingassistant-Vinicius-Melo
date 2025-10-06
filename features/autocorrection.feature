@@ -36,3 +36,5 @@ Then o sistema exibe o erro "Alternativa inválida, preencha entre a,b,c,d ou e"
 And a prova não é registrada
 
 Commit 1
+
+Commit 2
