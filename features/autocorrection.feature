@@ -38,3 +38,13 @@ And a prova não é registrada
 Commit 1
 
 Commit 2
+
+Given "Lucas" respondeu letra "a", letra "c" e letra "d" para as questões "1", "2" e "3" respectivamente
+And o sistema aceita apenas alternativas entre "a", "b", "c", "d" e "e"
+And a prova "EE6 de Matemática" tem 3 questões
+And a resposta esperada são letra "a", letra "b" e letra "d" para essas questões
+When "Lucas" envia as respostas
+Then o sistema calcula a nota proporcional às respostas corretas
+And exibe a nota "6.7" para "Lucas"
+And indica que a questão "2" estava incorreta
+And envia um email para "Lucas" com o feedback 
